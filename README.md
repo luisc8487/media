@@ -139,8 +139,8 @@ const buttonClass = classNames("btn", {
 - **Faker:**  
   Saves time and makes testing fun by generating random names.
 
-  - **classnames:**  
-    Makes it easy to apply different styles based on the state of components, keeping the code clean and maintainable.
+- **classnames:**  
+  Makes it easy to apply different styles based on the state of components, keeping the code clean and maintainable.
 
 ---
 
