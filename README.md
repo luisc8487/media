@@ -15,6 +15,9 @@ This project is a simple React application that demonstrates how to manage a lis
 - **State Management with Redux Toolkit:**  
   The app uses Redux Toolkit to manage complex state and asynchronous actions, such as fetching users from the server or adding a new user.
 
+- **Conditional Styling with classnames:**  
+   The app uses the `classnames` library to easily apply different CSS classes to components based on their state, making the UI more dynamic and easier to maintain.
+
 ---
 
 ## How It Works
@@ -27,6 +30,7 @@ This approach lets us develop and test our app as if we had a real backend, with
 
 **Example:**  
 When you add a user, the app sends a request to:
+
 ```
 POST http://localhost:3005/users
 ```
@@ -38,6 +42,7 @@ We use the [`@faker-js/faker`](https://www.npmjs.com/package/@faker-js/faker) li
 This makes it easy to test the app without typing in names manually.
 
 **Example from our code:**
+
 ```js
 import {faker} from "@faker-js/faker";
 
@@ -51,6 +56,7 @@ We use [`@reduxjs/toolkit`](https://redux-toolkit.js.org/) to manage the app's s
 Redux Toolkit simplifies state management and makes our code easier to maintain and scale.
 
 **Example from our code:**
+
 ```js
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
@@ -60,6 +66,23 @@ const addUser = createAsyncThunk("users/add", async () => {
     name: faker.name.fullName(),
   });
   return res.data;
+});
+```
+
+### 4. Conditional Styling with classnames
+
+We use the [`classnames`](https://www.npmjs.com/package/classnames) library to help manage CSS class names based on component state.  
+**Why?**  
+It makes it easier to apply different styles depending on things like loading, error, or active states, keeping our code clean and readable.
+
+**Example from our code:**
+
+```js
+import classNames from "classnames";
+
+const buttonClass = classNames("btn", {
+  "btn-loading": isLoading,
+  "btn-error": hasError,
 });
 ```
 
@@ -79,16 +102,21 @@ const addUser = createAsyncThunk("users/add", async () => {
 - **[react-redux](https://react-redux.js.org/):**  
   For connecting React components to the Redux store.
 
+- **[classnames](https://www.npmjs.com/package/classnames):**  
+  For conditionally joining CSS class names for styling components.
+
 ---
 
 ## Getting Started
 
 1. **Install dependencies:**
+
    ```
    npm install
    ```
 
 2. **Start the backend server (JSON Server):**
+
    ```
    npx json-server --watch db.json --port 3005
    ```
@@ -110,6 +138,9 @@ const addUser = createAsyncThunk("users/add", async () => {
 
 - **Faker:**  
   Saves time and makes testing fun by generating random names.
+
+  - **classnames:**  
+    Makes it easy to apply different styles based on the state of components, keeping the code clean and maintainable.
 
 ---
 
