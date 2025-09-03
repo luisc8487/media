@@ -1,10 +1,10 @@
-import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query";
+import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {faker} from "@faker-js/faker";
 
 const photosApi = createApi({
   reducerPath: "photos",
   baseQuery: fetchBaseQuery({
-    baseUrl: "htpp://localhost:3005",
+    baseUrl: "http://localhost:3005",
   }),
   endpoints(builder) {
     return {
