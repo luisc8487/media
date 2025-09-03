@@ -65,7 +65,7 @@
   "photos": [
     {
       "albumId": 10,
-      "url": "https://loremflickr.com/150/150/abstract?lock=18222",
+      "url": "https://picsum.photos/seed/0.5371693659280768/150/150",
       "id": 1
     }
   ]

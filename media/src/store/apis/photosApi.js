@@ -1,5 +1,4 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
-import {faker} from "@faker-js/faker";
 
 const photosApi = createApi({
   reducerPath: "photos",
@@ -22,11 +21,11 @@ const photosApi = createApi({
       addPhoto: builder.mutation({
         query: (album) => {
           return {
-            url: `/photos/`,
+            url: `/photos`,
             method: "POST",
             body: {
               albumId: album.id,
-              url: faker.image.abstract(150, 150, true),
+              url: `https://picsum.photos/seed/${Math.random()}/150/150`,
             },
           };
         },
